@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>發光陪跑一週限定賽｜故事行銷寶藏筆記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F3864;
+  --blue:#2E75B6;
+  --lightblue:#D6E4F7;
+  --teal:#1A7A6E;
+  --lightteal:#D4EFEC;
+  --orange:#C55A11;
+  --amber:#FFF8E7;
+  --green:#375623;
+  --lightgreen:#E2EFDA;
+  --red:#C00000;
+  --lightred:#FCE4D6;
+  --purple:#5B3291;
+  --lightpurple:#EDE4F6;
+  --gray:#595959;
+  --lightgray:#F5F5F5;
+  --midgray:#BFBFBF;
+  --serif:'Noto Serif TC',serif;
+  --sans:'Noto Sans TC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0f1923;color:#e8e0d4;font-family:var(--sans);font-size:16px;line-height:1.75;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px;
+  background:linear-gradient(160deg,#0f1923 0%,#1a2e3e 50%,#0f2318 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(26,122,110,.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-block;
+  border:1px solid rgba(26,122,110,.5);
+  color:var(--teal);font-size:.8rem;letter-spacing:.2em;
+  padding:6px 18px;border-radius:99px;margin-bottom:28px;
+  font-family:var(--sans);font-weight:500;
+  animation:fadeUp .6s ease both;
+}
+.hero h1{
+  font-family:var(--serif);font-size:clamp(2rem,6vw,3.6rem);font-weight:900;
+  color:#f0ebe3;line-height:1.2;margin-bottom:16px;
+  animation:fadeUp .7s .1s ease both;
+}
+.hero h1 span{color:var(--teal)}
+.hero-sub{
+  font-size:clamp(.95rem,2.5vw,1.15rem);color:#a0b0b8;max-width:520px;
+  margin:0 auto 40px;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-date{
+  display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .7s .3s ease both;
+}
+.hero-date span{
+  background:rgba(26,122,110,.15);border:1px solid rgba(26,122,110,.3);
+  color:var(--teal);font-size:.85rem;padding:6px 16px;border-radius:6px;
+}
+.hero-team{
+  display:flex;align-items:center;gap:10px;
+  margin-top:18px;
+  animation:fadeUp .7s .4s ease both;
+}
+.team-num{
+  font-family:var(--serif);font-size:1rem;font-weight:900;
+  color:#f0ebe3;letter-spacing:.06em;
+}
+.team-divider{color:rgba(26,122,110,.5);font-size:1.1rem}
+.team-leader{
+  font-size:.95rem;color:var(--teal);font-weight:700;
+  letter-spacing:.08em;
+}
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  color:var(--midgray);font-size:.78rem;letter-spacing:.1em;
+  animation:fadeUp .7s .5s ease both;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-hint::after{
+  content:'';display:block;width:1px;height:32px;
+  background:linear-gradient(var(--teal),transparent);
+  animation:scrollLine 1.5s ease infinite;
+}
+@keyframes scrollLine{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(1);transform-origin:bottom}}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(15,25,35,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(26,122,110,.2);
+  padding:0 24px;
+}
+.nav-inner{
+  max-width:900px;margin:0 auto;
+  display:flex;align-items:center;gap:4px;
+  overflow-x:auto;scrollbar-width:none;
+  padding:12px 0;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+nav a{
+  white-space:nowrap;font-size:.8rem;color:#8a9ea8;
+  text-decoration:none;padding:5px 12px;border-radius:6px;
+  transition:all .2s;letter-spacing:.03em;
+}
+nav a:hover{color:var(--teal);background:rgba(26,122,110,.1)}
+
+/* ── MAIN LAYOUT ── */
+main{max-width:900px;margin:0 auto;padding:0 24px 80px}
+
+/* ── SECTION ── */
+.section{
+  margin:64px 0 0;
+  animation:fadeUp .5s ease both;
+}
+.section-header{
+  display:flex;align-items:flex-start;gap:16px;
+  border-left:4px solid var(--teal);
+  padding-left:18px;margin-bottom:28px;
+}
+.section-header .emoji{font-size:1.6rem;line-height:1;margin-top:2px}
+.section-header h2{
+  font-family:var(--serif);font-size:clamp(1.3rem,3.5vw,1.7rem);
+  font-weight:900;color:#f0ebe3;line-height:1.3;
+}
+.section-header h2 small{
+  display:block;font-family:var(--sans);font-size:.8rem;
+  font-weight:400;color:var(--teal);letter-spacing:.12em;margin-bottom:4px;
+}
+
+/* ── SUBSECTION ── */
+h3.sub{
+  font-family:var(--sans);font-size:1.05rem;font-weight:700;
+  color:var(--blue);margin:28px 0 10px;
+  display:flex;align-items:center;gap:8px;
+}
+h3.sub::before{content:'';display:inline-block;width:3px;height:1em;background:var(--blue);border-radius:2px}
+h4.mini{font-size:.95rem;font-weight:700;color:var(--orange);margin:20px 0 8px}
+
+/* ── PROSE ── */
+p.body{color:#c8d4da;margin-bottom:10px;font-size:.97rem}
+p.body strong{color:#e8e0d4}
+
+/* ── CALLOUT BOXES ── */
+.box{border-radius:10px;padding:20px 24px;margin:14px 0;font-size:.95rem;line-height:1.8}
+.box-teal{background:rgba(26,122,110,.12);border:1px solid rgba(26,122,110,.25);color:#d0ede9}
+.box-teal strong{color:var(--teal)}
+.box-amber{background:rgba(196,90,17,.1);border:1px solid rgba(196,90,17,.25);color:#e8d8c8}
+.box-amber strong{color:#e07040}
+.box-blue{background:rgba(46,117,182,.1);border:1px solid rgba(46,117,182,.25);color:#c8d8ec}
+.box-blue strong{color:var(--blue)}
+.box-red{background:rgba(192,0,0,.1);border:1px solid rgba(192,0,0,.2);color:#e8c8c8}
+.box-red strong{color:#e04040}
+.box-purple{background:rgba(91,50,145,.12);border:1px solid rgba(91,50,145,.25);color:#ddd0ec}
+.box-navy{background:var(--navy);border:1px solid rgba(46,117,182,.3);color:#d0dce8}
+.box-navy strong{color:var(--blue)}
+.box-title{font-weight:700;font-size:.88rem;letter-spacing:.08em;margin-bottom:10px;display:block}
+
+.formula{
+  text-align:center;padding:22px;margin:16px 0;
+  background:linear-gradient(135deg,rgba(26,122,110,.15),rgba(46,117,182,.1));
+  border:1px solid rgba(26,122,110,.3);border-radius:10px;
+  font-family:var(--serif);font-size:1.1rem;font-weight:700;color:#e0f0ed;
+  line-height:1.9;
+}
+.formula .arrow{color:var(--teal);margin:0 6px}
+
+/* ── TAG CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{
+  background:rgba(26,122,110,.15);border:1px solid rgba(26,122,110,.3);
+  color:var(--teal);font-size:.82rem;padding:5px 14px;border-radius:99px;
+  font-weight:500;
+}
+
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto;margin:14px 0;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+thead th{
+  background:var(--navy);color:#d0dce8;font-weight:700;
+  padding:10px 14px;text-align:left;white-space:nowrap;
+}
+tbody tr:nth-child(odd){background:rgba(255,255,255,.03)}
+tbody tr:nth-child(even){background:rgba(255,255,255,.06)}
+tbody td{padding:9px 14px;color:#c0ccd4;border-top:1px solid rgba(255,255,255,.06)}
+tbody td:first-child{color:#d8e4ec;font-weight:500}
+
+/* ── SCRIPT BOX ── */
+.script-box{
+  border-left:4px solid var(--purple);
+  background:rgba(91,50,145,.1);border-radius:0 10px 10px 0;
+  padding:20px 24px;margin:14px 0;
+}
+.script-box .script-title{
+  font-weight:700;color:var(--purple);font-size:.88rem;
+  letter-spacing:.06em;margin-bottom:14px;display:block;
+}
+.script-box .line{font-size:.93rem;color:#d0c8e0;line-height:1.9;display:block}
+.script-box .comment{font-size:.82rem;color:var(--orange);font-style:italic;margin:6px 0;display:block}
+.script-box .blank{color:rgba(91,50,145,.5)}
+
+/* ── ARCH BOX ── */
+.arch{
+  background:rgba(46,117,182,.08);border:1px solid rgba(46,117,182,.2);
+  border-radius:10px;padding:20px 24px;margin:14px 0;
+}
+.arch-title{font-weight:700;color:var(--blue);font-size:.88rem;letter-spacing:.06em;margin-bottom:14px;display:block}
+.arch-step{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);
+  font-size:.93rem;color:#c0d0dc;
+}
+.arch-step:last-child{border-bottom:none}
+.arch-step .arrow{color:var(--teal);font-size:1.1rem;flex-shrink:0;margin-top:1px}
+
+/* ── BULLET LIST ── */
+ul.blist{list-style:none;padding:0;margin:8px 0}
+ul.blist li{
+  padding:6px 0 6px 24px;position:relative;
+  font-size:.95rem;color:#c0ccd4;border-bottom:1px solid rgba(255,255,255,.04);
+}
+ul.blist li:last-child{border-bottom:none}
+ul.blist li::before{
+  content:'';position:absolute;left:0;top:13px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--teal);flex-shrink:0;
+}
+
+/* ── NUMBERED LIST ── */
+ol.nlist{list-style:none;padding:0;counter-reset:nl;margin:8px 0}
+ol.nlist li{
+  padding:7px 0 7px 36px;position:relative;
+  font-size:.95rem;color:#c0ccd4;counter-increment:nl;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+ol.nlist li:last-child{border-bottom:none}
+ol.nlist li::before{
+  content:counter(nl);position:absolute;left:0;top:6px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--teal);color:#fff;font-size:.78rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── CHECKLIST ── */
+ul.chklist{list-style:none;padding:0;margin:8px 0}
+ul.chklist li{
+  padding:8px 0 8px 32px;position:relative;
+  font-size:.95rem;color:#c0ccd4;border-bottom:1px solid rgba(255,255,255,.04);
+}
+ul.chklist li:last-child{border-bottom:none}
+ul.chklist li::before{
+  content:'□';position:absolute;left:0;top:7px;
+  font-size:1rem;color:var(--teal);
+}
+
+/* ── SCHEDULE ── */
+.schedule{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08);margin:14px 0}
+.schedule-row{
+  display:grid;grid-template-columns:140px 1fr;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.schedule-row:last-child{border-bottom:none}
+.schedule-date{
+  padding:13px 16px;font-weight:700;font-size:.88rem;
+  display:flex;align-items:center;
+}
+.schedule-task{padding:13px 16px;font-size:.92rem;color:#b8c8d4;display:flex;align-items:center}
+.s-teal{background:rgba(26,122,110,.2);color:var(--teal)}
+.s-blue{background:rgba(46,117,182,.15);color:#80b0d8}
+.s-amber{background:rgba(196,90,17,.15);color:#e09060}
+.s-red{background:rgba(192,0,0,.15);color:#e08080}
+
+/* ── LINK ── */
+a.ext{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+a.ext:hover{color:#6ab0e8}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:2px solid rgba(26,122,110,.25);margin:56px 0 0}
+
+/* ── QUOTE ── */
+blockquote.qp{
+  border-left:4px solid var(--orange);
+  padding:12px 20px;margin:14px 0;
+  background:rgba(196,90,17,.07);border-radius:0 8px 8px 0;
+  font-style:italic;color:#d8c8b8;font-size:.97rem;
+}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:40px 24px;
+  border-top:1px solid rgba(255,255,255,.07);
+  color:var(--midgray);font-size:.82rem;letter-spacing:.05em;
+}
+footer span{color:var(--teal)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .section-header h2{font-size:1.2rem}
+  .schedule-row{grid-template-columns:120px 1fr}
+  .schedule-date{font-size:.8rem;padding:11px 12px}
+  .schedule-task{font-size:.85rem;padding:11px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✨ 發光實驗室</div>
+  <h1>發光陪跑<span>一週限定賽</span><br>故事行銷寶藏筆記</h1>
+  <p class="hero-sub">一週挑戰，一支影片，讓陌生人在你的故事裡看見自己。</p>
+  <div class="hero-date">
+    <span>📅 5/4（一）– 5/10（日）</span>
+    <span>📊 數據 5/14 結算</span>
+    <span>🏆 團隊積分賽</span>
+  </div>
+  <div class="hero-team">
+    <span class="team-num">第 10 組</span>
+    <span class="team-divider">｜</span>
+    <span class="team-leader">小隊長 QT</span>
+  </div>
+  <div class="scroll-hint">往下滑</div>
+</section>
+
+
+<main>
+
+<!-- ═══ 溝通說明 ═══ -->
+<div class="section reveal" id="comm">
+  <div class="section-header">
+    <span class="emoji">💬</span>
+    <h2><small>先看這個</small>陪跑期間的溝通方式</h2>
+  </div>
+
+  <div class="box box-teal">
+    <strong class="box-title">📌 問題討論在群組</strong>
+    這次陪跑的問題討論，我統一在群組裡進行——不管是文案方向、畫面感、音樂節奏，有任何問題都歡迎丟進群組。<br><br>
+    <strong>為什麼？</strong><br>
+    因為很多人遇到的問題其實都一樣。放在群組裡，一個回答可以幫到所有人，大家也可以互相激勵、互相學習。<br><br>
+    <strong>另外說明一下我的狀態——</strong><br>
+    我平常是全職帶孩子，用零碎時間帶大家陪跑。訊息放在群內，是為了確保我不會漏掉任何人。私訊有時候真的會被淹沒，群組是最穩的管道。
+  </div>
+
+  <div class="box box-amber">
+    <strong class="box-title">📌 自主節奏</strong>
+    我不會主動私訊要求你交文案或追進度。<br><br>
+    大家都是成年人，為自己的選擇負責。要做、什麼時候做、做到什麼程度——這些都是你自己決定的。<br><br>
+    如果你準備好了、想要反饋、或卡關了，隨時來找我。我在。😆
+  </div>
+
+  <div class="box box-blue">
+    <strong class="box-title">📌 訊息確認</strong>
+    群內如果有 <strong>@All</strong> 的訊息，請記得按一個表情符號確認。<br><br>
+    不用特別回覆，一個 emoji 就好。這樣我才安心大家都同步到了。🙌
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 比賽說明 ═══ -->
+<div class="section reveal" id="race">
+  <div class="section-header">
+    <span class="emoji">🏆</span>
+    <h2><small>活動規則</small>比賽說明</h2>
+  </div>
+
+  <div class="formula">
+    在 5/4（一）– 5/10（日）上傳一支故事行銷 Reels<br>
+    數據於 5/14 結算
+  </div>
+
+  <h3 class="sub">積分規則</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>計分方式</th><th>門檻</th><th>積分</th></tr></thead>
+      <tbody>
+        <tr><td>流量</td><td>3,000–5,000 觀看</td><td>100 分</td></tr>
+        <tr><td>流量</td><td>5,001–10,000 觀看</td><td>300 分</td></tr>
+        <tr><td>流量</td><td>10,001–30,000 觀看</td><td>500 分</td></tr>
+        <tr><td>流量</td><td>30,001–100,000 觀看</td><td>800 分</td></tr>
+        <tr><td>流量</td><td>100,000+ 觀看</td><td>1,000 分</td></tr>
+        <tr><td>互動</td><td>每 1 個 ❤️ 按讚</td><td>1 分</td></tr>
+        <tr><td>互動</td><td>每 1 則 💬 留言</td><td>1 分</td></tr>
+        <tr><td>互動</td><td>每 1 次 🔄 轉發</td><td>1 分</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">冠軍獎勵 🎁</h3>
+  <ul class="blist">
+    <li>冠軍團隊餐敘</li>
+    <li>米妃 ／ Peggy 限動轉發，讓更多人看見你</li>
+  </ul>
+
+  <h3 class="sub">兩件一定要做的事 ⚠️</h3>
+  <ul class="blist">
+    <li>影片上架後，內文加上 <strong>#發光實驗室</strong>（小幫手才能統計到你）</li>
+    <li>開啟 IG 後台的流量、留言、分享數據</li>
+  </ul>
+
+  <h3 class="sub">關於求助</h3>
+  <div class="box box-teal">
+    過程中有問題（文案、畫面感、音樂節奏），可以在群組裡求助資深小隊長。<br><br>
+    但記得：<strong>小隊長不代操、不代剪、不幫你想故事。</strong>他們是陪你找方向的人，不是替你做的人。<br><br>
+    大家務必有禮貌——小隊長們都是無私撥出時間，背後也有老師們一同協助。
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 為什麼說故事 ═══ -->
+<div class="section reveal" id="why">
+  <div class="section-header">
+    <span class="emoji">💡</span>
+    <h2><small>核心概念</small>為什麼這週要說故事？</h2>
+  </div>
+
+  <blockquote class="qp">「陌生粉絲不是在追你的知識，是在追『你這個人』。」</blockquote>
+
+  <p class="body">很多人做影片，都覺得要講有用的資訊才有人看。但讓人真正按下追蹤的，是那種「這個人好像在說我的事」的感覺。</p>
+  <p class="body">故事，就是創造這種感覺最快的方式。</p>
+
+  <h3 class="sub">說故事可以做到什麼？</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>效果</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>讓陌生人秒感共鳴，看完想追蹤</td><td>他在你的故事裡看到自己的影子</td></tr>
+        <tr><td>建立「你是有故事的人」的形象</td><td>比介紹自己更有溫度、更有記憶點</td></tr>
+        <tr><td>不需要每支都賣東西，但每支都在累積信任</td><td>故事型帳號讓人願意長期追蹤</td></tr>
+        <tr><td>幫你篩選對的觀眾</td><td>真正有共鳴的人，會因為這支影片留下來</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 拍什麼 ═══ -->
+<div class="section reveal" id="what">
+  <div class="section-header">
+    <span class="emoji">📖</span>
+    <h2><small>影片方向</small>這次要拍什麼樣的影片？</h2>
+  </div>
+
+  <div class="formula">
+    「發生了一件事」<span class="arrow">→</span>「讓我有了一個感觸」<span class="arrow">→</span>「我想跟你說的是——」
+  </div>
+
+  <p class="body">這次的影片不是在介紹你是誰，也不是在講你的整個人生。是一件最近讓你有感觸的事，加上你從這件事得到的感悟。</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th></th><th>故事行銷 ✅</th><th>介紹自己型 ❌</th></tr></thead>
+      <tbody>
+        <tr><td>聚焦</td><td>一件近期發生的事</td><td>你的整段人生</td></tr>
+        <tr><td>觀眾感受</td><td>「這跟我好像！」</td><td>「她的故事蠻有趣的」</td></tr>
+        <tr><td>共鳴程度</td><td>高——容易代入</td><td>低——旁觀者視角</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote class="qp">不要把你的人生壓縮成一分鐘，選一件事，把它說完整。</blockquote>
+</div>
+<hr class="divider">
+
+<!-- ═══ 故事方向 ═══ -->
+<div class="section reveal" id="direction">
+  <div class="section-header">
+    <span class="emoji">🌟</span>
+    <h2><small>官方方向</small>這次活動的故事發想方向</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>方向</th><th>說明</th><th>示範</th></tr></thead>
+      <tbody>
+        <tr><td>生命成長中重要的事</td><td>讓你改變或成長的經歷</td><td>做了某件事後，發現自己不是你以為的那個人</td></tr>
+        <tr><td>生活中突然發生的事</td><td>近期發生、讓你有感觸的日常</td><td>不用是大事，小事有感觸就夠了</td></tr>
+        <tr><td>第三人故事（朋友或名人）</td><td>借別人的故事帶出你的感悟</td><td>先說特點 → 講事件 → 揭曉是誰</td></tr>
+        <tr><td>你的變現品項背後的故事</td><td>你賣的東西，背後有什麼故事？</td><td>用故事讓觀眾先共鳴，再自然帶出產品</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">三個真實範例：故事 → 建立什麼形象</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>故事內容</th><th>建立的形象</th></tr></thead>
+      <tbody>
+        <tr><td>撿流浪貓回家，談到對公益的想法</td><td>公益人設</td></tr>
+        <tr><td>爸爸因心臟病在浴室滑倒後的領悟</td><td>孝順人設</td></tr>
+        <tr><td>爬 101 的 Alex，過程中看見什麼</td><td>創業人設</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">如果你有變現品項，這樣想素材</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>你的品項</th><th>可以說的故事方向</th></tr></thead>
+      <tbody>
+        <tr><td>保養品 ／ 護膚</td><td>皮膚出問題那段狼狽的日子——那個狀態和感受是什麼？</td></tr>
+        <tr><td>算命 ／ 能量療癒</td><td>一個讓你相信命運可以改變的故事——那個轉折是什麼？</td></tr>
+        <tr><td>發光課程 ／ 自媒體</td><td>當初下定決心學習的轉捩點——是什麼讓你決定開始？</td></tr>
+        <tr><td>任何品項</td><td>你與這個品項最深刻的一個連結是什麼？那個故事是什麼？</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 確定目的 ═══ -->
+<div class="section reveal" id="goal">
+  <div class="section-header">
+    <span class="emoji">🎯</span>
+    <h2><small>動筆前必做</small>開始之前，先想清楚一件事</h2>
+  </div>
+
+  <p class="body"><strong>這支影片，我希望觀眾看完之後——做什麼？或感受到什麼？</strong></p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>你想要的效果</th><th>影片方向</th><th>結尾</th></tr></thead>
+      <tbody>
+        <tr><td>讓觀眾覺得「你懂我」</td><td>說出感悟，讓觀眾被理解</td><td>自然收尾，不需要行動呼籲</td></tr>
+        <tr><td>帶觀眾去社群 ／ 課程</td><td>故事 ＋ 明確指引</td><td>要放，給觀眾去的理由</td></tr>
+        <tr><td>帶貨 ／ 介紹服務</td><td>故事 ＋ 自然帶入產品</td><td>要放，告訴觀眾下一步</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-red">目的不清楚 → 結構一定亂 → 影片一定弱。<strong>先想好再動筆。</strong></div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 找素材 ═══ -->
+<div class="section reveal" id="material">
+  <div class="section-header">
+    <span class="emoji">💭</span>
+    <h2><small>靈感來源</small>找出你想說的故事</h2>
+  </div>
+
+  <h3 class="sub">問自己這五個問題，找出那件事</h3>
+  <ol class="nlist">
+    <li>最近有沒有哪件事，讓你印象特別深刻？（小事也可以）</li>
+    <li>那件事發生的當下，你心裡在想什麼？</li>
+    <li>事後你有什麼不同的感受，或突然想通了什麼？</li>
+    <li>這件事有沒有讓你對某件事的看法改變了？</li>
+    <li>你希望看完的人帶走什麼感受？</li>
+  </ol>
+
+  <h3 class="sub">找不到素材？試試這個方法</h3>
+  <div class="box box-teal">
+    打開手機相簿，翻最近三個月的照片。找一張讓你想多看一眼的——那個當下，你在想什麼？發生了什麼？<strong>那就是你的素材。</strong>
+  </div>
+
+  <h3 class="sub">素材三大來源</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>來源</th><th>說明</th><th>注意</th></tr></thead>
+      <tbody>
+        <tr><td>你最近的生活（首選）</td><td>一年內最佳，越近越有細節</td><td>越近越好，觀眾越容易代入</td></tr>
+        <tr><td>身邊的人或名人</td><td>先說特點 → 講事件 → 揭曉是誰</td><td>最後要有你自己的感悟</td></tr>
+        <tr><td>正在上映的電影或時事</td><td>借現在大家在討論的話題</td><td>要選現在熱播的，不要用退燒的</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 腳本架構 ═══ -->
+<div class="section reveal" id="arch">
+  <div class="section-header">
+    <span class="emoji">🏗️</span>
+    <h2><small>選一個來用</small>兩種腳本架構</h2>
+  </div>
+
+  <div class="arch">
+    <span class="arch-title">📐 架構一：自身故事型</span>
+    <div class="arch-step"><span class="arrow">↓</span>衝突開頭（讓人停下來）</div>
+    <div class="arch-step"><span class="arrow">↓</span>畫面感細節鋪陳（讓人看見這件事）</div>
+    <div class="arch-step"><span class="arrow">↓</span>轉折連接詞（想不到 ／ 突然發現 ／ 直到）</div>
+    <div class="arch-step"><span class="arrow">↓</span>成長或領悟（你從這件事學到什麼）</div>
+    <div class="arch-step"><span class="arrow">↓</span>CTA（視目的決定，可選）</div>
+  </div>
+
+  <div class="arch" style="margin-top:16px">
+    <span class="arch-title">📐 架構二：名人 ／ 第三人故事型</span>
+    <div class="arch-step"><span class="arrow">↓</span>名人特點開場（不說名字，製造懸念）</div>
+    <div class="arch-step"><span class="arrow">↓</span>故事展開（具體細節、畫面感）</div>
+    <div class="arch-step"><span class="arrow">↓</span>揭曉是誰（懸念解開）</div>
+    <div class="arch-step"><span class="arrow">↓</span>帶回自己的感觸（你看到這個故事的感悟）</div>
+    <div class="arch-step"><span class="arrow">↓</span>CTA（視目的決定，可選）</div>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 五步寫作 ═══ -->
+<div class="section reveal" id="steps">
+  <div class="section-header">
+    <span class="emoji">✍️</span>
+    <h2><small>寫作流程</small>影片怎麼寫？五個步驟</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>步驟</th><th>你要做什麼</th><th>目的</th><th>小提示</th></tr></thead>
+      <tbody>
+        <tr><td>① 開頭（1–3 秒）</td><td>讓人停下來，不要滑走</td><td>製造繼續看的理由</td><td>落差感 ／ 問句 ／ 先說結果</td></tr>
+        <tr><td>② 說事件</td><td>具體描述發生了什麼</td><td>讓觀眾「看見」</td><td>數字、顏色、感官細節</td></tr>
+        <tr><td>③ 說感受</td><td>這件事讓你有什麼情緒</td><td>觀眾共鳴的關鍵</td><td>不要跳過這步</td></tr>
+        <tr><td>④ 說感悟</td><td>你從這件事學到什麼</td><td>影片的核心訊息</td><td>說清楚、說直接</td></tr>
+        <tr><td>⑤ 結尾</td><td>視目的決定</td><td>讓影片有落點</td><td>純共鳴可自然收</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 開頭技巧 ═══ -->
+<div class="section reveal" id="hook">
+  <div class="section-header">
+    <span class="emoji">🎬</span>
+    <h2><small>最關鍵的三秒</small>開頭怎麼寫才不會被滑掉？</h2>
+  </div>
+
+  <p class="body">前三秒決定觀眾留不留下來。這三種方式，任選一個：</p>
+
+  <h4 class="mini">方式一：對比 ／ 落差感</h4>
+  <p class="body">把兩個意想不到的東西放在一起，讓人一愣，想繼續看。</p>
+  <ul class="blist">
+    <li>「穿 390 的拖鞋，開著一台法拉利，你在想的會是什麼？」</li>
+    <li>「我媽在我國中的時候就跑了。留下我跟我爸，還有一個沒有人煮飯的廚房。」</li>
+  </ul>
+
+  <h4 class="mini">方式二：問觀眾一個問題</h4>
+  <p class="body">讓觀眾感覺你在跟他們說話，強迫他們的大腦去思考答案。</p>
+  <ul class="blist">
+    <li>「如果你在同一間公司待了 16 年，你會怎麼想？」</li>
+    <li>「你有沒有曾經遇過，明明什麼都沒做錯，卻覺得好累的感覺？」</li>
+  </ul>
+
+  <h4 class="mini">方式三：先說結果，再說過程</h4>
+  <p class="body">把最衝突的那一句先丟出來，讓觀眾想知道後來怎麼了。</p>
+  <ul class="blist">
+    <li>「我做了這件事 8 年，那天我突然問自己——我還應該繼續嗎？」</li>
+    <li>「那通電話讓我意識到，我一直以來都想錯了一件事。」</li>
+  </ul>
+
+  <h3 class="sub">改寫示範：自述 vs 對話</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>這樣說 ❌</th><th>改成這樣 ✅</th></tr></thead>
+      <tbody>
+        <tr><td>「我在這間公司待了 16 年……」</td><td>「如果你在同一間公司待了 16 年，你會怎麼想？」</td></tr>
+        <tr><td>「在一起六年，他說他想要自由。」</td><td>「如果你的另一半突然說他想要自由，你的第一反應是什麼？」</td></tr>
+        <tr><td>「我媽離開了我，那時候我很難受。」</td><td>「你有沒有過那種，突然必須一個人面對所有事情的感覺？」</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 三個技巧 ═══ -->
+<div class="section reveal" id="skills">
+  <div class="section-header">
+    <span class="emoji">💪</span>
+    <h2><small>提升感染力</small>讓故事更有感的三個技巧</h2>
+  </div>
+
+  <h3 class="sub">技巧一：說得具體（畫面感）</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>模糊說法 ❌</th><th>有畫面感 ✅</th></tr></thead>
+      <tbody>
+        <tr><td>「那時候很窮」</td><td>「我都要等超商特價才能買衛生紙」</td></tr>
+        <tr><td>「等了很久」</td><td>「等了整整 23 天」</td></tr>
+        <tr><td>「我很緊張」</td><td>「盯著手機，手放在腿上都不動」</td></tr>
+        <tr><td>「那段日子很辛苦」</td><td>「每天晚上十點回到家，冰箱是空的，我坐在地板上吃泡麵」</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">技巧二：用連接詞讓故事流動</h3>
+  <div class="chips">
+    <span class="chip">想不到</span><span class="chip">結果</span><span class="chip">竟然</span>
+    <span class="chip">突然發現</span><span class="chip">我嚇到</span><span class="chip">偏偏是</span>
+    <span class="chip">直到</span><span class="chip">除非</span><span class="chip">沒想到</span>
+  </div>
+
+  <h3 class="sub">技巧三：把最有力的句子放到前面</h3>
+  <p class="body">整篇文案裡你最有感覺的那一句話——把它移到開頭。不要把最好的東西留到最後，觀眾不會等你鋪陳。</p>
+</div>
+<hr class="divider">
+
+<!-- ═══ 文案範例 ═══ -->
+<div class="section reveal" id="examples">
+  <div class="section-header">
+    <span class="emoji">📝</span>
+    <h2><small>官方參考</small>三個完整文案範例</h2>
+  </div>
+
+  <p class="body">讀完感受結構和節奏，再用你自己的故事來寫——不是叫你照抄。</p>
+
+  <div class="script-box">
+    <span class="script-title">文案範例 1：自身故事型</span>
+    <span class="line">我媽在我國中的時候就跑了。</span>
+    <span class="line">留下我跟我爸，還有一個沒有人煮飯的廚房。</span>
+    <span class="line">那時候我每天早上自己起床、自己搭車、自己買早餐——</span>
+    <span class="line">我以為我很獨立。</span>
+    <span class="comment">【「我以為」→ 製造後面的反差】</span>
+    <span class="line">結果長大才發現，我只是很早就學會「不麻煩別人」，</span>
+    <span class="line">但我從來沒有學過「怎麼開口求助」。</span>
+    <span class="line">直到我開始做自媒體，第一次在鏡頭前說出這件事，</span>
+    <span class="line">我才發現，原來這才是我跟別人不一樣的地方。</span>
+    <span class="line">你有沒有一個故事，一直藏著——</span>
+    <span class="line">但其實說出來，會讓人更靠近你？</span>
+    <span class="comment">【問句型結尾，引觀眾共鳴，自然帶來留言互動】</span>
+  </div>
+
+  <div class="script-box" style="margin-top:16px">
+    <span class="script-title">文案範例 2：名人故事型（架構模板）</span>
+    <span class="line">有一個人，<span class="blank">___</span>（身份特徵）</span>
+    <span class="line">他在 <span class="blank">___</span> 歲的時候，做了一件 <span class="blank">___</span> 的事</span>
+    <span class="comment">【畫面感細節】具體場景 ／ 時速___ ／ 等了___天 ／ 連___都___</span>
+    <span class="comment">【轉折連接詞】結果 ／ 想不到 ／ 直到有一天</span>
+    <span class="line">這個人是 <span class="blank">___</span></span>
+    <span class="comment">【揭曉，帶回自己感觸】</span>
+    <span class="line">看到這個故事，我突然發現 <span class="blank">___</span></span>
+    <span class="line">所以我決定 <span class="blank">___</span></span>
+  </div>
+
+  <div class="script-box" style="margin-top:16px">
+    <span class="script-title">文案範例 3：自身故事型（衝突結構）</span>
+    <span class="line">你們有沒有曾經遇過 <span class="blank">___</span>（狀態）</span>
+    <span class="line">偏偏 <span class="blank">___</span>（外部阻力）</span>
+    <span class="line">那時候我 <span class="blank">___</span>（具體細節）</span>
+    <span class="comment">【數字 ／ 顏色 ／ 動作讓人有畫面】</span>
+    <span class="line">竟然 ／ 突然發現 ／ 我嚇到</span>
+    <span class="comment">【自己 VS 自己】</span>
+    <span class="line">我一直告訴自己 <span class="blank">___</span>，但我心裡其實知道 <span class="blank">___</span></span>
+    <span class="comment">【成長與代價】</span>
+    <span class="line">我選擇了 <span class="blank">___</span>，代價是 <span class="blank">___</span>，但我得到了 <span class="blank">___</span></span>
+    <span class="comment">【價值觀升華】</span>
+    <span class="line">現在我明白，<span class="blank">___</span>（一句話總結信念）</span>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 結尾 ═══ -->
+<div class="section reveal" id="ending">
+  <div class="section-header">
+    <span class="emoji">📣</span>
+    <h2><small>怎麼收</small>結尾要怎麼收？</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>你的目的</th><th>結尾方式</th><th>有效 CTA 示範</th></tr></thead>
+      <tbody>
+        <tr><td>純共鳴</td><td>說出感悟，自然收尾</td><td>不需要行動呼籲</td></tr>
+        <tr><td>導流社群 ／ 名單</td><td>給觀眾行動的理由</td><td>「留言『我要』我傳給你」</td></tr>
+        <tr><td>帶貨</td><td>自然帶入產品</td><td>「連結在個人頁面」</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote class="qp">說完你的感悟，就是很好的結尾——不是每支都需要叫觀眾做什麼。</blockquote>
+
+  <h3 class="sub">這些 CTA 通常沒有效果：</h3>
+  <ul class="blist">
+    <li>「Tag 一個朋友看這支影片」—— 沒有給觀眾 Tag 的理由</li>
+    <li>「喜歡的話記得按讚追蹤」—— 最弱的 CTA，幾乎不會有反應</li>
+    <li>「留言告訴我你的想法」—— 要給觀眾一個值得說話的話題才會有人留</li>
+  </ul>
+</div>
+<hr class="divider">
+
+<!-- ═══ 示範影片 ═══ -->
+<div class="section reveal" id="demo">
+  <div class="section-header">
+    <span class="emoji">🎥</span>
+    <h2><small>必看</small>示範影片</h2>
+  </div>
+
+  <p class="body">動筆之前先看完，感受「說故事」是什麼感覺：</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>影片</th><th>觀察重點</th></tr></thead>
+      <tbody>
+        <tr><td>Peggy — 帶流浪貓回家</td><td>它只說了一件小事，怎麼帶出讓人有感觸的結論？</td></tr>
+        <tr><td>奧哥 — IYKYK（穿 390 拖鞋開法拉利）</td><td>開頭怎麼讓你停下來？說話的節奏和語氣是什麼感覺？</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">
+    <a class="ext" href="https://www.instagram.com/reel/DWN5NMAEji6/?igsh=MWV1ZTdrempiOHQ1dA==" target="_blank">
+      🎬 Peggy 示範影片 → 點我觀看
+    </a>
+    <a class="ext" href="https://www.instagram.com/reel/DXPFeNGgJOE/?igsh=MXViemhjemEyNWpudQ==" target="_blank">
+      🎬 奧哥示範影片 → 點我觀看
+    </a>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ═══ 排程 ═══ -->
+<div class="section reveal" id="sched">
+  <div class="section-header">
+    <span class="emoji">📅</span>
+    <h2><small>一週計畫</small>一週怎麼走？</h2>
+  </div>
+
+  <div class="schedule">
+    <div class="schedule-row"><div class="schedule-date s-teal">5/4（一）</div><div class="schedule-task">看示範影片，確定要說哪件事、這支影片想做到什麼</div></div>
+    <div class="schedule-row"><div class="schedule-date s-blue">5/5（二）</div><div class="schedule-task">把故事的草稿寫出來，不用完美，先有就好</div></div>
+    <div class="schedule-row"><div class="schedule-date s-blue">5/6（三）</div><div class="schedule-task">調整文案，決定怎麼拍，套入架構一或架構二</div></div>
+    <div class="schedule-row"><div class="schedule-date s-amber">5/7（四）</div><div class="schedule-task">拍攝</div></div>
+    <div class="schedule-row"><div class="schedule-date s-amber">5/8（五）</div><div class="schedule-task">初剪、調整</div></div>
+    <div class="schedule-row"><div class="schedule-date s-amber">5/9（六）</div><div class="schedule-task">加字幕、選音樂、細節修整</div></div>
+    <div class="schedule-row"><div class="schedule-date s-red">5/10（日）</div><div class="schedule-task">最後確認，上片（最晚 23:59）🚀</div></div>
+  </div>
+
+  <div class="box box-amber" style="margin-top:16px">
+    <strong>提早完成、提早上片！</strong>影片越早上線，演算法越有機會幫你推出去。做好了就發，每早一天都是優勢。
+  </div>
+
+  <h3 class="sub">上片之後 📢</h3>
+  <ul class="blist">
+    <li>把影片連結貼到小隊群組和發光大群</li>
+    <li>你幫別人推，別人也幫你推——這週大家是同一隊</li>
+  </ul>
+</div>
+<hr class="divider">
+
+<!-- ═══ 發布確認 ═══ -->
+<div class="section reveal" id="check">
+  <div class="section-header">
+    <span class="emoji">✅</span>
+    <h2><small>發布前必看</small>自己確認一遍</h2>
+  </div>
+
+  <h3 class="sub">關於內容</h3>
+  <ul class="chklist">
+    <li>這支影片只說了一件事？沒有把很多事混在一起？</li>
+    <li>說的這件事是近期發生的，不是整段人生故事？</li>
+    <li>開頭有讓人想繼續看的感覺？（落差感、問句、衝突）</li>
+    <li>有具體的畫面細節，不是只說抽象道理？</li>
+    <li>有清楚說出你從這件事得到什麼感悟？</li>
+  </ul>
+
+  <h3 class="sub">關於目的和結尾</h3>
+  <ul class="chklist">
+    <li>知道這支影片的主要目的是什麼？</li>
+    <li>如果有放行動呼籲，它跟影片方向一致，且給了觀眾做的理由？</li>
+    <li>如果沒有放行動呼籲，結尾有自然收在一個感悟上？</li>
+  </ul>
+
+  <h3 class="sub">關於執行</h3>
+  <ul class="chklist">
+    <li>音樂的情緒和影片內容是搭的？</li>
+    <li>字幕位置不會被 IG 介面遮住（不要太靠底部）？</li>
+    <li>影片內文有加 #發光實驗室？</li>
+    <li>IG 後台的流量、留言、分享數據已開啟？</li>
+  </ul>
+</div>
+<hr class="divider">
+
+<!-- 結語 -->
+<div class="section reveal" style="margin-bottom:40px">
+  <div class="box box-teal" style="text-align:center;padding:36px 28px">
+    <p style="font-family:var(--serif);font-size:1.15rem;color:#e0f0ed;font-weight:700;margin-bottom:12px">最後，想跟你說一件事</p>
+    <p style="color:#b0d8d4;line-height:2;margin-bottom:0">
+      你不需要有一個「很精彩」的人生，才有資格說故事。<br>
+      你只需要有一件讓你有感觸的事。<br><br>
+      你覺得「這沒什麼」的那件事，<br>
+      可能正好是另一個人一直想說、但說不出口的感受。<br><br>
+      <strong style="color:var(--teal);font-size:1.1rem">這週，放膽說出來。✨</strong>
+    </p>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <span>✨ 發光實驗室</span>　五月陪跑一週限定賽　故事行銷寶藏筆記<br>
+  先求有，再求好。放膽發光。
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in')}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
